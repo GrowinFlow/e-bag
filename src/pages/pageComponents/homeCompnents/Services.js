@@ -7,7 +7,7 @@ function Services() {
 
 
             <section className="bg-whit">
-                <div className="flex md:grid py-8 container mx-auto grid-cols-auto md:grid-cols-3 gap-3 md:gap-8 md:flex-row flex-col">
+                <div className="flex md:grid px-4 py-8 container mx-auto grid-cols-auto md:grid-cols-3 gap-3 md:gap-8 md:flex-row flex-col">
 
                     <div className="p-2 text-xs md:text-md rounded-md md:rounded-lg bg-slate-100 shadow-lg border-2 border-gray-200 h-58 flex flex-col justify-center items-center">
                         <div className="bg-white rounded-full p-3 shadow-md overflow-hidden">

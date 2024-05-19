@@ -4,7 +4,7 @@ function Trusted() {
     return (
         <>
             <div className="w-screen">
-                <div className="container mx-auto flex justify-center">
+                <div className="container px-4 mx-auto flex justify-center">
                     <div className="flex flex-col p-4 bg-white shadow-lg md:rounded-lg w-full">
 
                    

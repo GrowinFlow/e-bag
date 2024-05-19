@@ -5,7 +5,7 @@ function NewsLetter() {
   return (
     <>
 
-<div className="news-bg bg-white flex items-center justify-center container mx-auto">
+<div className="news-bg px-4 bg-white flex items-center justify-center container mx-auto">
 
     <div className="newsL z-40 bg-white p-4 pb-0 rounded-md md:rounded-lg shadow-lg w-full relative top-12 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-12 grid-rows-1 gap-2 lg:gap-6">
         <div className="headings hidden md:block lg:col-span-7">
