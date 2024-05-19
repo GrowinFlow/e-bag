@@ -1,24 +1,26 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import Product from './pageComponents/productComponent/Product'
+import FeaturesProductComponent from './pageComponents/productComponent/FeaturesProductComponent'
 import { useProudctContext } from '../context/ProductContext'
 
 function SingleProduct() {
   const params = useParams()
   const { isLoading, featureProducts } = useProudctContext()
+
   
   // Find the product by ID
-  const product = featureProducts.find(product => product.id === params.id)
+  const product = featureProducts.find(product => product.product_id === params.id)
 
   if (isLoading) {
     return <div>Loading...</div>
   }
 
   if (!product) {
-    return <div>Product not found</div>
+    return <div>Product not found {params.id}, </div>
   }
 
   return (
+  
     <>
     <div className="container mx-auto">
 
@@ -28,7 +30,7 @@ function SingleProduct() {
           <h3 className='text-2xl md:text-4xl font-bold py-4'>Feature Product</h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-1 gap-3 md:gap-8">
-          <Product key={product.id} {...product} />
+          <FeaturesProductComponent key={params.id} {...product} />
         </div>
       </div>
     </div>

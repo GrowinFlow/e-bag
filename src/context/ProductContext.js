@@ -5,7 +5,7 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 const AppContext = createContext();
 
 
-const API = "https://api.pujakaitem.com/api/products";
+const API = "https://raw.githubusercontent.com/GrowinFlow/json/main/data.json";
 
 const initialState = {
     isLoading: false,
@@ -25,7 +25,7 @@ const getProducts = async (url) => {
    try {
      const res = await axios.get(url);
      const product = await res.data;
-     console.log("This is data", res)
+     console.log("This is data", res.data)
      dispatch({type:"SET_API_DATA", payload: product})
  
    } catch (error) {

@@ -4,7 +4,7 @@ import Services from './pageComponents/homeCompnents/Services'
 import Trusted from './pageComponents/homeCompnents/Trusted'
 import NewsLetter from './pageComponents/homeCompnents/NewsLetter'
 
-import FeatureProducts from './pageComponents/homeCompnents/FeatureProducts'
+import FeaturesProduct from './pageComponents/homeCompnents/FeatureSection'
 
 function Home() {
   return (
@@ -13,7 +13,7 @@ function Home() {
 
     <HeroSection />
     <Trusted />
-    <FeatureProducts />
+    <FeaturesProduct />
     <Services />
     <NewsLetter />
     
