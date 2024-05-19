@@ -134,9 +134,9 @@ function SingleProduct() {
 
             <div className="quantity flex gap-2 items-center py-2 lg:py4">
               <span>Quantity</span>
-              <button className='p-2 w-10 h-10 active:bg-gray-200 shadow-md hover:text-xl bg-white'><i class="fa-solid fa-minus"></i></button>
+              <button className='p-2 w-10 h-10 active:bg-gray-200 shadow-md active:text-xl hover-text-teal-700 bg-white'><i class="fa-solid fa-minus"></i></button>
               <span type="number" readOnly className=' bg-transparent min-w-10 outline-none border-0'>0</span>
-              <button className='p-2 w-10 h-10 active:bg-gray-200 shadow-md hover:text-xl bg-white'><i class="fa-solid fa-plus"></i></button>
+              <button className='p-2 w-10 h-10 active:bg-gray-200 shadow-md active:text-xl hover-text-teal-700 bg-white'><i class="fa-solid fa-plus"></i></button>
             </div>
 
             <div className="btns pt-2 lg:py-4 flex gap-2 md:flex-row flex-col justify-between items-center">
