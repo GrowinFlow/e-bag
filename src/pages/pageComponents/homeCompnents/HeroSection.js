@@ -1,7 +1,7 @@
 import React from 'react'
 import heroImg from './../../../assets/images/heroImg.png'
 import Logo from '../../../components/preComponent/Logo'
-import Buttons from '../Buttons'
+import Buttons from '../../../components/Buttons'
 
 
 
@@ -21,7 +21,7 @@ function HeroSection() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut maiores necessitatibus alias. Deleniti necessitatibus nemo dolor minus deserunt veritatis tempore cupiditate accusantium recusandae. Veritatis eligendi nisi quis, error neque dolore, quo consectetur voluptatibus iste iusto distinctio debitis dolores numquam adipisci temporibus maiores ea. Soluta quisquam molestias voluptates illum? Iste quod nesciunt ducimus, dolores veniam praesentium!
             </p>
             <div className="btn">
-            <Buttons btnText="Read more" btnLink="/"/>
+            <Buttons btnText="Read more" btnLink="/about"/>
         </div>
         </div>
 

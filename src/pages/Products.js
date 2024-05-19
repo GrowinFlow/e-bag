@@ -1,5 +1,5 @@
 import React from 'react'
-import Buttons from './pageComponents/Buttons'
+import Buttons from '../components/Buttons'
 
 
 function Products() {

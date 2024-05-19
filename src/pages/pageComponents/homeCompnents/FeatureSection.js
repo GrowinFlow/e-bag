@@ -1,10 +1,10 @@
 import React from 'react'
-import { useProudctContext } from '../../../context/ProductContext'
+import { useProductContext } from '../../../context/ProductContext'
 import FeaturesProductComponent from '../productComponent/FeaturesProductComponent';
 
 function FeatureSection() {
 
-    const {isLoading, featureProducts} = useProudctContext();
+    const {isLoading, featureProducts} = useProductContext();
     // console.log(featureProducts)
   return (
     <>
@@ -15,7 +15,7 @@ function FeatureSection() {
             <h3 className='text-2xl md:text-4xl font-bold py-4'>Feature Products</h3>
         </div>
 
-        <div className="flex justify-center gap-2 flex-wrap md:flex-nowrap">
+        <div className="flex gap-4 flex-wrap md:grid-cols-2 md:grid lg:grid-cols-4 border-2 border-gray-200 rounded-lg">
             {featureProducts.map((curElem)=>{
                 return <FeaturesProductComponent key={curElem.product_id} {...curElem}  />
             })}

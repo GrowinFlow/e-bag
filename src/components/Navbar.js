@@ -20,9 +20,8 @@ function Navbar() {
 
                 <ul className={`transition-opacity duration-300 ease-in-out pb-4 md:py-0   flex-col md:flex-row md:items-center justify-center md:justify-end gap-4 md:gap-2 order-3 md:order-2 col-span-2 md:col-span-7  ${show ? 'block' : 'hidden'} md:flex`}>
                     <NavItem toLink="/" linkName="Home" />
-                    {/* <NavItem toLink="/about" linkName="About" /> */}
-                    <NavItem toLink="/products" linkName="Products" />
-                    <NavItem toLink="/singleproduct" linkName="SingleProduct " />
+                    <NavItem toLink="/about" linkName="About" />
+                    <NavItem toLink="/products" linkName="Shop" />
                     <NavItem toLink="/contact" linkName="Contact us" />
 
                     <NavItem toLink="/cart" linkName={<div className='flex items-center gap-4 md:gap-0'><i className="fa-solid fa-cart-shopping"></i><span className='rounded-full bg-gradient-to-br from-teal-600 to-green-500 hover:bg-gradient-to-bl text-white min-w-[18px] max-w-[20px] h-[18px] flex items-center justify-center relative md:-top-2 text-[10px]'>24</span></div>} />

@@ -8,7 +8,7 @@ import FeaturesProduct from './pageComponents/homeCompnents/FeatureSection'
 
 function Home() {
   return (
-    <div className='w-screen pr-2'>
+    <div className='w-screen pr-2  transition-all ease-linear duration-300'>
 
 
     <HeroSection />

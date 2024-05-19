@@ -1,6 +1,6 @@
 import React from 'react'
 import NavItem from './../components/preComponent/NavItem'
-import Buttons from '../pages/pageComponents/Buttons'
+import Buttons from './Buttons'
 import Logo from './../components/preComponent/Logo'
 import NewsLetter from '../pages/pageComponents/homeCompnents/NewsLetter'
 
