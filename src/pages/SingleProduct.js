@@ -3,20 +3,20 @@ import { NavLink, useParams } from 'react-router-dom';
 import { useProductContext } from '../context/ProductContext';
 import Breadcrumb from '../components/Breadcrumb';
 import SkeletonSingleProduct from '../skeletonPages/SkeletonSingleProduct'
+import RatingStar from './pageComponents/singlePageComponent/RatingStar'
+import QuantityManage from './pageComponents/singlePageComponent/QuantityManage';
 
 
 const API = 'https://raw.githubusercontent.com/GrowinFlow/json/main/data.json';
 
 function SingleProduct() {
 
-  const [mainImg, setmainImg] = useState()
 
-
-  const { getSingleProduct, isSingleLoading, singleProduct } = useProductContext(); 
+  const { getSingleProduct, isSingleLoading, singleProduct } = useProductContext();
   const { id } = useParams();
 
-  const correctId = parseInt(id) - 1; 
-  const correctProduct = singleProduct[correctId] || {}; 
+  const correctId = parseInt(id) - 1;
+  const correctProduct = singleProduct[correctId] || {};
 
   useEffect(() => {
     // console.log('Product ID:', id); /
@@ -24,14 +24,17 @@ function SingleProduct() {
   }, [id]);
 
 
-  const { product_id, title, product_feature_img, current_price, category, description, discount_percentage, discount_price, ratings, made_country, keywords, product_stock, product_images } = correctProduct;
-  console.log(correctProduct);
+  const { product_id, title, product_feature_img, current_price, category, description, discount_percentage, discount_price, ratings, reviews, made_country, keywords, product_stock, product_images } = correctProduct;
+  // console.log(correctProduct);
 
+  const [mainImg, setMainImg] = useState(product_images ? product_images[0] : '');
 
   if (isSingleLoading) {
     return (<SkeletonSingleProduct />)
-
   }
+
+
+
   return (
 
     <>
@@ -49,24 +52,24 @@ function SingleProduct() {
 
 
           {/* images  */}
-          <div className="product-img-area flex justify-between gap-2 md:col-span-2">
+          <div className="product-img-area grid grid-rows-[50px_,_1fr] md:flex justify-between gap-2 md:col-span-2">
 
 
-          <div className="product-more-images gap-4 items-center justify-start">
+            <div className="product-more-images gap-8 flex items-center justify-start flex-row md:flex-col">
               {
                 product_images && product_images.map((key, index) => (
 
-                  <div className="img ring-2 ring-teal-700 rounded-md w-10 h-10 md:w-10 overflow-hidden p-[1px] group  mt-4">
-                    <img src={key} alt="" key={index} className='rounded-md object-fit group-hover:scale-110 cursor-pointer transition-all ease-linear duration-300' />
+                  <div className="img ring-2 ring-teal-700 rounded-md w-10 h-10 md:w-10 overflow-hidden p-[1px] group ">
+                    <img src={key} alt="" key={index} className='rounded-md object-fit group-hover:scale-110 cursor-pointer transition-all ease-linear duration-300' onClick={() => { setMainImg(product_images[index]) }} />
                   </div>
 
                 ))
               }
 
             </div>
-            <div className="feature-image w-[90%] flex justify-center items-center
+            <div className="feature-image w-[] md:w-[90%] flex justify-center 
             ">
-              <img src={product_feature_img} alt="" />
+              <img src={mainImg || product_feature_img} alt={title} />
             </div>
 
           </div>
@@ -83,15 +86,13 @@ function SingleProduct() {
             </div>
 
             <div className="rating-and-share flex justify-between items-center py-2 lg:py-4">
+
               <div className="rating flex items-center gap- text-xs md:text-sm lg:text-md text-yellow-300">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star-half-stroke"></i>
+                <RatingStar rating={ratings} />
                 <span className='rounded-md p-[1px] ml-2 px-2 text-sm bg-yellow-300 text-blue-600'>
                   {ratings}
                 </span>
+                <span className='px-2 text-gray-500'>(reviews {reviews})</span>
               </div>
 
               <div className="share flex gap-2">
@@ -115,20 +116,6 @@ function SingleProduct() {
               <hr />
             </div>
 
-            <div className="country-and-stock flex items-center justify-between ">
-
-              <div className="country-label text-sm flex item justify-end">
-                <p>Made in <span className='text-gray-500'>{made_country}</span></p>
-              </div>
-              <div className="total-stock text-sm py-2">
-                Avaibale: <i> {product_stock}</i>
-                <span className='text-xs text-gray-500'>{product_stock > 0 ? " Items In Stock" : "Out of Stock"}</span>
-              </div>
-            </div>
-
-            <div className='py-2 lg:py4'>
-              <hr />
-              </div>
 
             <div className="price gap-2 lg:py-4 py-2 flex items-center justify-between">
               <div className="current-price_dicount text-2xl">$
@@ -140,20 +127,15 @@ function SingleProduct() {
               </div>
             </div>
 
-            <div className="quantity flex gap-2 items-center py-2 lg:py4">
-              <span>Quantity</span>
-              <button className='p-2 w-10 h-10 active:bg-gray-200 shadow-md active:text-xl hover-text-teal-700 bg-white'><i class="fa-solid fa-minus"></i></button>
-              <span type="number" readOnly className=' bg-transparent min-w-10 outline-none border-0'>0</span>
-              <button className='p-2 w-10 h-10 active:bg-gray-200 shadow-md active:text-xl hover-text-teal-700 bg-white'><i class="fa-solid fa-plus"></i></button>
-            </div>
+            <QuantityManage initialStock={product_stock} country={made_country} />
 
             <div className="btns pt-2 lg:py-4 flex gap-2 md:flex-row flex-col justify-between items-center">
-            <NavLink to={`/cart`} className="text-white w-full flex justify-center items-center gap-2 bg-gradient-to-br from-teal-600 to-green-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5">
-  <i className="fa-solid fa-cart-shopping"></i>Add to cart
-</NavLink>
-            <NavLink to={`/cart`} className="text-white w-full flex justify-center items-center gap-2 bg-gradient-to-br from-teal-600 to-green-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5">
-            <i class="fa-solid fa-truck"></i>Buy now
-</NavLink>
+              <NavLink to={`/cart`} className="text-white w-full flex justify-center items-center gap-2 bg-gradient-to-br from-teal-600 to-green-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                <i className="fa-solid fa-cart-shopping"></i>Add to cart
+              </NavLink>
+              <NavLink to={`/cart`} className="text-white w-full flex justify-center items-center gap-2 bg-gradient-to-br from-teal-600 to-green-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                <i class="fa-solid fa-truck"></i>Buy now
+              </NavLink>
 
             </div>
 
@@ -165,7 +147,11 @@ function SingleProduct() {
 
         </div>
 
-
+<br />
+<br />
+<br />
+<br />
+<br />
 
       </div>
 
@@ -173,4 +159,4 @@ function SingleProduct() {
   )
 }
 
-export default SingleProduct
+export default SingleProduct;

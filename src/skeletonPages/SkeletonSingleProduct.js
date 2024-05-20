@@ -10,7 +10,7 @@ function SkeletonSingleProduct() {
         <Breadcrumb link_1={""} text_1="" link_2={""} text_2={""} link_3={""} text_3={""} text_4={""} />
       </div>
 
-      <div className="product_view px-4 flex flex-col justify-center md:grid grid-cols-5 gap-2">
+      <div className="product_view p-4 flex flex-col justify-center md:grid grid-cols-5 gap-2">
         {/* images  */}
         <div className="product-img-area flex justify-between md:col-span-2">
           <div className="feature-image flex items-center">

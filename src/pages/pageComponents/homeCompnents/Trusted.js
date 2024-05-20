@@ -1,50 +1,38 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 
-function Trusted() {
-    return (
-        <>
-            <div className="w-screen">
-                <div className="container px-4 mx-auto flex justify-center">
-                    <div className="flex flex-col p-4 bg-white shadow-lg md:rounded-lg w-full">
+function LazyCarousel() {
+  const [sliderItems, setSliderItems] = useState([
+    'fa-wizards-of-the-coast',
+    'fa-shopify',
+    'fa-medapps',
+    'fa-nfc-directional',
+    'fa-mandalorian',
+    'fa-pagelines',
+    'fa-digg',
+    'fa-pied-piper-alt',
+    'fa-airbnb'
+  ]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-                   
-                    <div className="brands heading flex justify-center items-center text-lg md:text-2xl font-semibold text-gray-400 py-4 pb-6" >
-                        Trusted by 100+ Compnies
-                    </div>
-                    <div className="brands-log ">
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex(prevIndex => (prevIndex === sliderItems.length - 1 ? 0 : prevIndex + 1));
+    }, 3000);
 
-                        <ul className="b-logo text-4xl md:text-7xl text-gray-700 list-none flex flex-wrap py-2 justify-between items-center">
+    return () => clearInterval(interval);
+  }, [sliderItems]);
 
-                            <li>
-                            <i className="fa-brands fa-amazon-pay"></i>
-                            </li>
-
-                            <li>
-                                <i className='fa-brands fa-shopify'></i>
-                            </li>
-
-                            <li>
-                            <i className="fa-brands fa-medapps"></i>
-                            </li>
-
-                            <li>
-                            <i className="fa-brands fa-nfc-directional"></i>
-                            </li>
-
-                            <li>
-                            <i className="fa-brands fa-mandalorian"></i>
-                            </li>
-
-
-
-                        </ul>
-
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
+  return (
+    <div className="brands-log overflow-hidden mx-auto container p-4">
+      <ul className="b-logo text-4xl md:text-7xl text-gray-700 list-none flex py-2 items-center">
+        {sliderItems.map((icon, index) => (
+          <li key={index} className={`slider-item ${index === currentIndex ? 'active' : ''}`}>
+            <i className={`fab ${icon}`}></i>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
-export default Trusted
+export default LazyCarousel;
