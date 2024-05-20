@@ -44,7 +44,8 @@ function SingleProduct() {
 
           {/* images  */}
           <div className="product-img-area flex flex-col md:col-span-2">
-            <div className="feature-image w-[90%] ">
+            <div className="feature-image w-[90%] flex justify-center items-center
+            ">
               <img src={product_feature_img} alt="" />
             </div>
 
