@@ -1,0 +1,78 @@
+import { NavLink } from "react-router-dom";
+import Breadcrumb from "../components/Breadcrumb";
+import React from "react";
+
+function SkeletonSingleProduct() {
+  return (
+    <div className="container mx-auto transition-all ease-linear duration-300 overflow-x-hidden animate-pulse">
+      <div className="p-4 flex">
+        {/* breadcrumb_navigation  */}
+        <Breadcrumb link_1={""} text_1="" link_2={""} text_2={""} link_3={""} text_3={""} text_4={""} />
+      </div>
+
+      <div className="product_view px-4 flex flex-col justify-center md:grid grid-cols-5 gap-2">
+        {/* images  */}
+        <div className="product-img-area flex justify-between md:col-span-2">
+          <div className="feature-image flex items-center">
+            <div className="product-more-images gap-4 items-center justify-start">
+              {Array(3).fill().map((_, index) => (
+                <div key={index} className="img ring-2 ring-slate-400 rounded-md w-10 h-10 overflow-hidden p-[1px] group relative -top-6 mt-4">
+                  <div className='bg-gray-200 h-full rounded-md group-hover:scale-110 cursor-pointer transition-all ease-linear duration-300'></div>
+                </div>
+              ))}
+            </div>
+            <div className="w-56 h-[90%] bg-gray-200 rounded-lg ml-2"></div>
+          </div>
+        </div>
+
+        <div className="product-details-and-cart md:col-span-3 px-4">
+          <div className="product-title bg-gray-200 rounded-lg p-2 w-[20] text-xl md:text-2xl lg:text-3xl lg:pb-4"></div>
+          <div className="bg-gray-200 rounded-lg w-{60%} description text-xs md:text-sm lg:text-md text-gray-500 lg:py-4"></div>
+          <div className="rating-and-share flex justify-between items-center py-2 lg:py-4">
+            <div className="rating flex items-center gap-1 text-xs md:text-sm lg:text-md text-yellow-300">
+              {Array(5).fill().map((_, index) => (
+                <i key={index} className="fa-solid bg-gray-200 rounded-md w-4 h-4"></i>
+              ))}
+              <div className='bg-gray-200 rounded-md p-2 ml-2 w-6 h-4 text-sm text-blue-600'></div>
+            </div>
+            <div className="share flex gap-2">
+              {Array(2).fill().map((_, index) => (
+                <span key={index} className='bg-gray-200 p-2 w-6 lg:w-8 h-6 lg:h-8 flex items-center justify-center text-gray-500 text-sm md:text-md lg:text-lg rounded-full active:bg-slate-200'>
+                  
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="keywords flex gap-2 flex-wrap items-center justify-start">
+            {Array(3).fill().map((_, index) => (
+              <span key={index} className='rounded-md px-6 p-3 bg-gray-200 shadow-md text-xs'></span>
+            ))}
+          </div>
+          <div className='py-2 lg:py-4'><hr /></div>
+          <div className="country-and-stock flex items-center justify-between">
+            <div className="country-label rounded-md text-sm flex justify-end w-28 p-3 bg-gray-200"></div>
+            <div className="total-stock rounded-md text-sm flex justify-end w-28 p-3 bg-gray-200"></div>
+          </div>
+          <div className='py-2 lg:py-4'><hr /></div>
+          <div className="price gap-2 py-2 lg:py-4 rounded-md bg-gray-200 w-18 flex items-center justify-between">
+           
+            <div className="quantity flex gap-2 items-center py-2 lg:py-4 rounded-md bg-gray-200 w-18">
+              <button className='p-2 w-10 h-10 active:bg-gray-200 shadow-md bg-gray-200'></button>
+              <span type="number" readOnly className='bg-transparent min-w-10 outline-none border-0 bg-gray-200 w-6'></span>
+              <button className='p-2 w-10 h-10 active:bg-gray-200 shadow-md bg-gray-200'></button>
+            </div>
+          </div>
+          <div className="btns pt-2 lg:py-4 flex gap-2 md:flex-row flex-col justify-between items-center">
+            {Array(2).fill().map((_, index) => (
+              <NavLink key={index} to={""} className="text-white w-full flex justify-center items-center gap-2 bg-gray-200 p-2 font-medium rounded-lg text-sm px-5 py-2.5">
+                <i className="fa-solid"></i>
+              </NavLink>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default SkeletonSingleProduct;

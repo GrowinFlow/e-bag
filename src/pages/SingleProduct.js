@@ -1,20 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useProductContext } from '../context/ProductContext';
 import Breadcrumb from '../components/Breadcrumb';
+import SkeletonSingleProduct from '../skeletonPages/SkeletonSingleProduct'
 
 
 const API = 'https://raw.githubusercontent.com/GrowinFlow/json/main/data.json';
 
 function SingleProduct() {
-  const { getSingleProduct, isSingleLoading, singleProduct } = useProductContext(); // Ensure correct spelling
+
+  const [mainImg, setmainImg] = useState()
+
+
+  const { getSingleProduct, isSingleLoading, singleProduct } = useProductContext(); 
   const { id } = useParams();
 
-  const correctId = parseInt(id) - 1; // Ensure id is parsed as integer
-  const correctProduct = singleProduct[correctId] || {}; // Ensure correctProduct is defined
+  const correctId = parseInt(id) - 1; 
+  const correctProduct = singleProduct[correctId] || {}; 
 
   useEffect(() => {
-    console.log('Product ID:', id); // Debug log
+    // console.log('Product ID:', id); /
     getSingleProduct(`${API}?id=${id}`);
   }, [id]);
 
@@ -24,7 +29,8 @@ function SingleProduct() {
 
 
   if (isSingleLoading) {
-    return <div>Loading . . .. .</div>
+    return (<SkeletonSingleProduct />)
+
   }
   return (
 
@@ -34,7 +40,7 @@ function SingleProduct() {
         <div className="p-4 flex flex-col tems-center">
 
           {/* breadcrumb_navigation  */}
-          <Breadcrumb link_1={"/"} text_1="Home" link_2={"/products"} text_2={category} text_3={title} />
+          <Breadcrumb link_1={"/"} text_1="Home" link_2={"/shop"} text_2={"Shop"} link_3={`/shop/${category}`} text_3={category} text_4={title} />
         </div>
 
 
@@ -43,18 +49,14 @@ function SingleProduct() {
 
 
           {/* images  */}
-          <div className="product-img-area flex flex-col md:col-span-2">
-            <div className="feature-image w-[90%] flex justify-center items-center
-            ">
-              <img src={product_feature_img} alt="" />
-            </div>
+          <div className="product-img-area flex justify-between gap-2 md:col-span-2">
 
 
-            <div className="product-more-images absolute gap-4 items-center justify-start">
+          <div className="product-more-images gap-4 items-center justify-start">
               {
                 product_images && product_images.map((key, index) => (
 
-                  <div className="img ring-2 ring-teal-700 rounded-md w-10 h-10 md:w-10 overflow-hidden p-[1px] group relative top-4 mt-4">
+                  <div className="img ring-2 ring-teal-700 rounded-md w-10 h-10 md:w-10 overflow-hidden p-[1px] group  mt-4">
                     <img src={key} alt="" key={index} className='rounded-md object-fit group-hover:scale-110 cursor-pointer transition-all ease-linear duration-300' />
                   </div>
 
@@ -62,6 +64,11 @@ function SingleProduct() {
               }
 
             </div>
+            <div className="feature-image w-[90%] flex justify-center items-center
+            ">
+              <img src={product_feature_img} alt="" />
+            </div>
+
           </div>
 
 
@@ -88,10 +95,10 @@ function SingleProduct() {
               </div>
 
               <div className="share flex gap-2">
-                <span className='p-2 w-6 h-6 flex items-center justify-center shadow-md text-sm md:text-md lG:text-lg rounded-full bg-slate-200'>
+                <span className='p-2 w-6 lg:w-8 h-6 lg:h-8 flex items-center justify-center hover:shadow-md text-gray-500 text-sm md:text-md lg:text-lg rounded-full active:bg-slate-200'>
                   <i class="fa-solid fa-share-nodes"></i>
                 </span>
-                <span className='p-2 w-6 h-6 flex items-center justify-center text-sm md:text-md lG:text-lg rounded-full active:bg-slate-200 active:shadow-md group'>
+                <span className='p-2 w-6 lg:w-8 h-6 lg:h-8 flex items-center justify-center  text-gray-500 text-sm md:text-md lG:text-lg rounded-full active:bg-slate-200 active:shadow-md group'>
                   <i class="fa-regular fa-heart group-hover:text-rose-500"></i></span>
               </div>
             </div>
@@ -128,8 +135,8 @@ function SingleProduct() {
                 <span className='text-bold text-teal-700'>{discount_price}</span>
                 <sub className='line-through text-gray-500'>{current_price}</sub>
               </div>
-              <div className="discount-perscent text-2xl">
-                <span className='text-black'>{discount_percentage}<sub className='text-teal-700 text-sm'>% off</sub></span>
+              <div className="discount-perscent text-2xl">-
+                <span className='text-black'>{discount_percentage}<span className='text-teal-700'>%</span></span>
               </div>
             </div>
 

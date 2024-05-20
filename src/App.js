@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home'
 import About from './pages/About'
-import Products from './pages/Products'
+import Shop from './pages/Shop'
 import Contact from './pages/Contact'
 import SingleProduct from './pages/SingleProduct'
 import Cart from './pages/Cart'
@@ -21,10 +21,12 @@ function App() {
   <Routes>
     <Route path="/" element={<Home />}/>
     <Route path="/about" element={<About />}/>
-    <Route path="/products" element={<Products />}/>
+    <Route path="/shop" element={<Shop />}/>
+    <Route path="/shop/:category" element={<Shop />}/>
     <Route path="/contact" element={<Contact />}/>
-    <Route path="/singleproduct" element={<SingleProduct />}>
-      <Route path="/singleproduct/:id" element={<SingleProduct />} />
+    
+    <Route path="/product" element={<SingleProduct />}>
+      <Route path="/product/:id" element={<SingleProduct />} />
     </Route>
     <Route path="/cart" element={<Cart />}/>
     <Route path="/*" element={<ErrorPage />}/>

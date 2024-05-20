@@ -2,7 +2,7 @@ import React from 'react'
 import Buttons from '../components/Buttons'
 
 
-function Products() {
+function Shop() {
   return (
     <div>
             <section className="bg-white">
@@ -22,4 +22,4 @@ function Products() {
   )
 }
 
-export default Products
+export default Shop

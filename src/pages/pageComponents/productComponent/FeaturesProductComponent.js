@@ -37,7 +37,7 @@ current_price, category, description, discount_percentage, discount_price, ratin
         <span className="mr-2 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">{ratings}</span>
       </div>
     </div>
-    <NavLink to={`/singleproduct/${product_id}`} className="text-white w-full flex justify-center items-center gap-2 bg-gradient-to-br from-teal-600 to-green-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5">
+    <NavLink to={`/product/${product_id}`} className="text-white w-full flex justify-center items-center gap-2 bg-gradient-to-br from-teal-600 to-green-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5">
   <i className="fa-solid fa-cart-shopping"></i>Add to cart
 </NavLink>
 
