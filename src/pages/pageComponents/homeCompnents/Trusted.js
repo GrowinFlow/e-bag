@@ -1,38 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-function LazyCarousel() {
-  const [sliderItems, setSliderItems] = useState([
-    'fa-wizards-of-the-coast',
-    'fa-shopify',
-    'fa-medapps',
-    'fa-nfc-directional',
-    'fa-mandalorian',
-    'fa-pagelines',
-    'fa-digg',
-    'fa-pied-piper-alt',
-    'fa-airbnb'
-  ]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex(prevIndex => (prevIndex === sliderItems.length - 1 ? 0 : prevIndex + 1));
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [sliderItems]);
-
+function Trusted() {
   return (
-    <div className="brands-log overflow-hidden mx-auto container p-4">
-      <ul className="b-logo text-4xl md:text-7xl text-gray-700 list-none flex py-2 items-center">
-        {sliderItems.map((icon, index) => (
-          <li key={index} className={`slider-item ${index === currentIndex ? 'active' : ''}`}>
-            <i className={`fab ${icon}`}></i>
-          </li>
-        ))}
+    <div className="brands-log overflow-hidden mx-auto container ">
+      <div className="heading text-center py-4 md:py-8 font-extrabold text-4xl text-gray-300">
+        100+ Brands
+      </div>
+      <ul className="b-logo p-6 text-4xl md:text-7xl text-gray-700 list-none flex justify-between h-20 items-center space-x-4">
+                  <i className="fa-brands fa-medapps"></i>
+    
+                  <i className="fa-brands fa-nfc-directional"></i>
+    
+                  <i className="fa-brands fa-mandalorian"></i>
+    
+                  <i className="fa-brands fa-pagelines"></i>
+    
+                  <i className="fa-brands fa-digg"></i>
+    
+                  <i className="fa-brands fa-pied-piper-alt"></i>
+    
+                  <i className="fa-brands fa-airbnb"></i>
+    
       </ul>
     </div>
   );
 }
 
-export default LazyCarousel;
+export default Trusted;
