@@ -12,7 +12,7 @@ function Navbar() {
 
     return (
 
-        <div className='w-screen bg-gray-100 shadow-lg'>
+        <div className='w-screen bg-gray-100 shadow-lg sticky top-0 z-50'>
             <nav className='container mx-auto grid grid-rows-[] md:grid-rows-1 grid-cols-2 md:grid-cols-9 justify-between gap-6 py-2 px-4 flex-wrap'>
                 <ul className='order-1 col-span-1 flex items-center'>
                     <Logo textSize="xl" />

@@ -4,8 +4,10 @@ import FeaturesProductComponent from '../productComponent/FeaturesProductCompone
 
 function FeatureSection() {
 
-    const {isLoading, featureProducts} = useProductContext();
+    const { featureProducts} = useProductContext();
+    // const {isLoading, featureProducts} = useProductContext();
     // console.log(featureProducts)
+
   return (
     <>
 

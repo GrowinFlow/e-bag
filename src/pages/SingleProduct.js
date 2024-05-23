@@ -4,7 +4,9 @@ import { useProductContext } from '../context/ProductContext';
 import Breadcrumb from '../components/Breadcrumb';
 import SkeletonSingleProduct from '../skeletonPages/SkeletonSingleProduct'
 import RatingStar from './pageComponents/singlePageComponent/RatingStar'
-import QuantityManage from './pageComponents/singlePageComponent/QuantityManage';
+
+import AddToCart from './pageComponents/singlePageComponent/AddToCart';
+
 
 
 const API = 'https://raw.githubusercontent.com/GrowinFlow/json/main/data.json';
@@ -13,16 +15,16 @@ function SingleProduct() {
 
 
   const { getSingleProduct, isSingleLoading, singleProduct } = useProductContext();
+  
   const { id } = useParams();
 
   const correctId = parseInt(id) - 1;
   const correctProduct = singleProduct[correctId] || {};
 
   useEffect(() => {
-    // console.log('Product ID:', id); /
     getSingleProduct(`${API}?id=${id}`);
   }, [id]);
-
+  
 
   const { product_id, title, product_feature_img, current_price, category, description, discount_percentage, discount_price, ratings, reviews, made_country, keywords, product_stock, product_images } = correctProduct;
   // console.log(correctProduct);
@@ -43,7 +45,7 @@ function SingleProduct() {
         <div className="p-4 flex flex-col tems-center">
 
           {/* breadcrumb_navigation  */}
-          <Breadcrumb link_1={"/"} text_1="Home" link_2={"/shop"} text_2={"Shop"} link_3={`/shop/${category}`} text_3={category} text_4={title} />
+          <Breadcrumb link_1={"/"} text_1="Home" link_2={"/shop"} text_2={"Shop"} text_3={category} text_4={title} />
         </div>
 
 
@@ -67,9 +69,10 @@ function SingleProduct() {
               }
 
             </div>
-            <div className="feature-image w-[] md:w-[90%] flex justify-center 
+            <div className="feature-image  w-[] md:w-[90%] h-full flex justify-center 
             ">
               <img src={mainImg || product_feature_img} alt={title} />
+              
             </div>
 
           </div>
@@ -97,10 +100,10 @@ function SingleProduct() {
 
               <div className="share flex gap-2">
                 <span className='p-2 w-6 lg:w-8 h-6 lg:h-8 flex items-center justify-center hover:shadow-md text-gray-500 text-sm md:text-md lg:text-lg rounded-full active:bg-slate-200'>
-                  <i class="fa-solid fa-share-nodes"></i>
+                  <i className="fa-solid fa-share-nodes"></i>
                 </span>
                 <span className='p-2 w-6 lg:w-8 h-6 lg:h-8 flex items-center justify-center  text-gray-500 text-sm md:text-md lG:text-lg rounded-full active:bg-slate-200 active:shadow-md group'>
-                  <i class="fa-regular fa-heart group-hover:text-rose-500"></i></span>
+                  <i className="fa-regular fa-heart group-hover:text-rose-500"></i></span>
               </div>
             </div>
 
@@ -120,24 +123,16 @@ function SingleProduct() {
             <div className="price gap-2 lg:py-4 py-2 flex items-center justify-between">
               <div className="current-price_dicount text-2xl">$
                 <span className='text-bold text-teal-700'>{discount_price}</span>
-                <sub className='line-through text-gray-500'>{current_price}</sub>
+                <sub className='line-through text-gray-500 z-0'>{current_price}</sub>
               </div>
               <div className="discount-perscent text-2xl">-
                 <span className='text-black'>{discount_percentage}<span className='text-teal-700'>%</span></span>
               </div>
             </div>
 
-            <QuantityManage initialStock={product_stock} country={made_country} />
+ 
+            <AddToCart  initialStock={product_stock} country={made_country} product={correctProduct}/>
 
-            <div className="btns pt-2 lg:py-4 flex gap-2 md:flex-row flex-col justify-between items-center">
-              <NavLink to={`/cart`} className="text-white w-full flex justify-center items-center gap-2 bg-gradient-to-br from-teal-600 to-green-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5">
-                <i className="fa-solid fa-cart-shopping"></i>Add to cart
-              </NavLink>
-              <NavLink to={`/cart`} className="text-white w-full flex justify-center items-center gap-2 bg-gradient-to-br from-teal-600 to-green-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5">
-                <i class="fa-solid fa-truck"></i>Buy now
-              </NavLink>
-
-            </div>
 
           </div>
 

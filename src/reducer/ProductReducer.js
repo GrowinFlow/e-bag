@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ProductReducer = (state, action) => {
     switch (action.type) {
         case "SET_LOADING":
@@ -13,7 +11,7 @@ const ProductReducer = (state, action) => {
             return {
                 ...state,
                 isLoading: false,
-                product: action.payload,
+                products: action.payload, // Ensure this updates the 'products' key
                 featureProducts: featureData
             };
 

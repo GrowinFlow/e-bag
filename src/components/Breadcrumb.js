@@ -9,7 +9,7 @@ function Breadcrumb(props) {
                 <i className="fa-solid fa-chevron-right"></i>
                 <NavLink to={props.link_2} className="hover:text-black">{props.text_2}</NavLink>
                 <i className="fa-solid fa-chevron-right"></i>
-                <NavLink to={props.link_3} className="hover:text-black">{props.text_3}</NavLink>
+                <NavLink className="cursor-default">{props.text_3}</NavLink>
                 <i className="fa-solid fa-chevron-right"></i>
                 <NavLink className="text-black cursor-default">{props.text_4}</NavLink>
             </div>

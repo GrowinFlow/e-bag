@@ -1,6 +1,4 @@
 import React from 'react'
-import Logo from '../../../components/preComponent/Logo'
-
 function SubmitionThanks() {
   return (
     <>
