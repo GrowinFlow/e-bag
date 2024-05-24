@@ -6,6 +6,8 @@ import SkeletonSingleProduct from '../skeletonPages/SkeletonSingleProduct'
 import RatingStar from './pageComponents/singlePageComponent/RatingStar'
 
 import AddToCart from './pageComponents/singlePageComponent/AddToCart';
+import LoadingBar from '../components/LoadingBar';
+import Toast from '../components/Toast';
 
 
 
@@ -32,7 +34,12 @@ function SingleProduct() {
   const [mainImg, setMainImg] = useState(product_images ? product_images[0] : '');
 
   if (isSingleLoading) {
-    return (<SkeletonSingleProduct />)
+    return (
+      <>
+      <LoadingBar />
+    <SkeletonSingleProduct />
+      </>
+  )
   }
 
 
@@ -40,6 +47,7 @@ function SingleProduct() {
   return (
 
     <>
+
       <div className="container mx-auto transition-all ease-linear duration-300 overflow-x-hidden">
 
         <div className="p-4 flex flex-col tems-center">
@@ -78,7 +86,7 @@ function SingleProduct() {
           </div>
 
 
-          <div className="product-details-and-cart md:col-span-3 px-4">
+          <div className="product-details-and-cart md:col-span-3 px-4 pb-2 border-2 border-dashed rounded-lg border-gray-300">
 
             <div className="product-title text-xl md:text-2xl lg:text-3xl lg:pb-4">
               <h1>{title}</h1>
@@ -131,7 +139,7 @@ function SingleProduct() {
             </div>
 
  
-            <AddToCart  initialStock={product_stock} country={made_country} product={correctProduct}/>
+            <AddToCart  initialStock={product_stock} country={made_country} product={correctProduct} mainImg={mainImg} title={title}/>
 
 
           </div>

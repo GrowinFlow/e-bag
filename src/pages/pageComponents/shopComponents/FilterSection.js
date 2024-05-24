@@ -1,9 +1,8 @@
 import React from 'react';
 import { useFilterContext } from '../../../context/FilterContext';
 
-
 const FilterSection = () => {
-  
+
   const { all_products, updateFilterValue } = useFilterContext();
 
   const getUniqueData = (data, property) => {
@@ -41,7 +40,7 @@ const FilterSection = () => {
                   name="category"
                   value={category}
                   onClick={() => filterProductsByCategory(category)}
-                  className="md:p-2 p-4 hover:underline md:bg-gray-200 md:w-full rounded-lg shadow-md active:text-teal-700 active:underline"
+                  className="md:p-2 p-4 hover:underline md:bg-gray-100 md:w-full rounded-lg shadow-md active:text-teal-700 active:underline"
                 >
                   {category}
                 </button>

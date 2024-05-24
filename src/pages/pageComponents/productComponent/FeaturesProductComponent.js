@@ -35,7 +35,7 @@ const FeaturesProductComponent = (curElem) => {
               <span className="mr-2 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">{ratings}</span>
             </div>
           </div>
-          <NavLink to={`/product/${product_id}`} className="text-white w-full flex justify-center items-center gap-2 bg-gradient-to-br from-teal-600 to-green-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5">
+          <NavLink to={`/product/${product_id}`} className="text-white w-full flex justify-center items-center gap-2 bg-teal-700 active:text-teal-700 active:bg-white focus:ring-4 focus:outline-none focus:ring-teal-500  font-medium rounded-lg text-sm px-5 py-2.5">
             <i class="fa-solid fa-eye"></i>View
           </NavLink>
 

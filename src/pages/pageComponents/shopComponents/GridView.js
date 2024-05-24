@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 const GridView = ({ products = [] }) => {
     return (
         <>
-        <div className='container mx-auto p-4 flex transition-all ease-linear duration-300'>
-            <div className="flex gap-4 flex-wrap md:grid-cols-2 md:grid lg:grid-cols-3 xl:grid-cols-4 px-4">
+        <div className='container mx-auto  p-4 flex transition-all ease-linear duration-300'>
+            <div className="flex gap-4 border-2 border-dashed border-gray-200 p-2 rounded-lg flex-wrap md:grid-cols-2 md:grid lg:grid-cols-3 xl:grid-cols-4 px-4">
                 {products.map((curElem) => {
                     const { product_id, title, product_feature_img, current_price, discount_percentage, discount_price, ratings } = curElem;
                     return (
@@ -32,7 +32,7 @@ const GridView = ({ products = [] }) => {
                                         <span className="mr-2 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">{ratings}</span>
                                     </div>
                                 </div>
-                                <NavLink to={`/product/${product_id}`} className="text-white w-full flex justify-center items-center gap-2 bg-gradient-to-br from-teal-600 to-green-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                                <NavLink to={`/product/${product_id}`} className="text-white w-full flex justify-center items-center gap-2  bg-teal-700 active:text-teal-700 active:bg-white focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-sm px-5 py-2.5">
                                     <i className="fa-solid fa-eye"></i>View
                                 </NavLink>
                             </div>

@@ -1,7 +1,11 @@
 import React from 'react'
 import QunatityControl from '../singlePageComponent/QunatityControl'
+import { useCartContext } from '../../../context/CartContext';
 
-const CartItem = ({ id, quantity, image, catlog, name, price }) => {
+
+const CartItem = ({ id, quantity, image, catlog, name, price, stock }) => {
+    const {removeItem, setDecrement, setIncrement} = useCartContext()
+
 
     return (
         <>
@@ -15,27 +19,30 @@ const CartItem = ({ id, quantity, image, catlog, name, price }) => {
 
                     <div className="details text-sm md:text-md">
                         <div className="title font-medium text-nowrap  w-16 md:w-24 lg:w-28 text-ellipsis overflow-hidden ">{name}</div>
-                        <div className="category font-light text-nowrap w-12 md:w-24 lg:w-28 text-ellipsis overflow-hidden text-xs ">{catlog}</div>
+                        <div className="category text-nowrap w-12 md:w-24 lg:w-28 text-ellipsis overflow-hidden text-xs font-medium">ID<span className='font-light'>{id}</span></div>
                     </div>
 
                 </div>
 
                 <div className='hidden md:flex justify-center items-center'>
                     <span>
-                        $<span className='font-medium text-teal-700'>{price}</span>
+                        $<span className='font-medium text-teal-700'>{price.toFixed(2)}</span>
                     </span>
                 </div>
 
                 <div className='flex justify-end md:justify-center items-center'>
-                    <QunatityControl increment={""} decrement={""} quant={quantity} />
+                    <QunatityControl increment={()=>setIncrement(id)} decrement={()=>setDecrement(id)} quant={quantity} />
                 </div>
 
                 <div className='hidden md:flex  justify-center items-center'>
-                    $ <span className='font-medium text-teal-700'>{price * quantity}</span>
+                    $ <span className='font-medium text-teal-700'>{(price * quantity).toFixed(2)}</span>
                 </div>
 
                 <div className='flex justify-end md:justify-center items-center px-2 group'>
-                    <i className='fa-solid fa-trash text-red-600  active:text-teal-700 hover:scale-125  transition-all duration-300 ease-in cursor-pointer group-hover:fa-bounce'></i>
+                    <i 
+                    onClick={()=>removeItem(id)}
+                    className='fa-solid fa-trash text-red-600  active:text-teal-700   transition-all duration-300 ease-in cursor-pointer hover:scale-125 '
+                    ></i>
                 </div>
             </div>
         </>

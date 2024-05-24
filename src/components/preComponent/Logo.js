@@ -9,7 +9,7 @@ function Logo(props) {
          <i className="fa-solid fa-e"></i>
          <b className='text-black'>&nbsp;-&nbsp;</b>
          <i className="fa-solid fa">B</i>
-         <i className="fa-solid fa-bag-shopping fa-bounce font-bold bg-gradient-to-br from-teal-600 to-green-500 bg-clip-text text-transparent hover:bg-gradient-to-b px-[2px]"></i>
+         <i className="fa-solid fa-bag-shopping fa-bounce font-bold text-teal-700 px-[2px]"></i>
          <i className="fa-solid fa">G</i>
          </span>
     </NavLink>

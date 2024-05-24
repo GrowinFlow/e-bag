@@ -1,0 +1,26 @@
+.loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    z-index: 99999999999;
+    background: transparent;
+  }
+  
+  .inner-bar {
+    height: 100%;
+    width: 0%;
+    opacity: 1;
+    position: absolute;
+  }
+  
+  .inner-flash {
+    width: 5%;
+    height: 100%;
+    opacity: 1;
+    position: absolute;
+    left: -5.5%;
+    box-shadow: #00ad74 0px 0px 10px, rgb(0, 128, 85) 0px 0px 5px;
+  }
+  

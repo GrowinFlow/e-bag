@@ -1,11 +1,12 @@
 import React from 'react'
 import { useForm, ValidationError } from '@formspree/react';
-import SubmitionThanks from './SubmitionThanks';
+import ThanksNote from '../../../components/ThanksNote';
 
 function ContactForm() {
         const [state, handleSubmit] = useForm("mdoqjvdj");
         if (state.succeeded) {
-            return <SubmitionThanks />
+            return <ThanksNote heading="Thanks for joining!" note="Stay up to date and move work forward with 
+                "/>
         }
 
   return (

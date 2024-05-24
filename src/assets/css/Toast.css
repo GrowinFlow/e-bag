@@ -1,0 +1,20 @@
+@keyframes shrinkBorder {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0;
+    }
+  }
+  
+  .toast-animation::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px; /* Same as the border-b-4 class */
+    background-color: #0f766e; /* Teal color */
+    animation: shrinkBorder 5s linear forwards;
+  }
+  

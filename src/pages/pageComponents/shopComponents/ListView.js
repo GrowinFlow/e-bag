@@ -3,7 +3,9 @@ import { NavLink } from 'react-router-dom';
 
 const ListView = ({ products }) => {
   return (
-    <div className="flex flex-col gap-4 px-4 w-full">
+    <div className="flex flex-col gap-4 p-4 container mx-auto ">
+      <div className="border-2 border-dashed border-gray-200 p-2 rounded-lg">
+
       {products.map((curElem, index) => {
         const { product_id, title, product_feature_img, current_price, description, discount_price, ratings } = curElem;
 
@@ -13,8 +15,8 @@ const ListView = ({ products }) => {
               <img src={product_feature_img} alt={title} className="object-cover w-full h-full transition-all ease-in duration-700 group-hover:scale-125" />
             </div>
             <div className="col-span-3">
-              <div className="title text-2xl">{title}</div>
-              <div className="description text-gray-500 lg:text-lg py-2">{description}</div>
+              <div className="title text-lg py-1 font-medium md:text-2xl">{title}</div>
+              <div className="description text-gray-500 text-sm lg:text-lg py-2">{description}</div>
               <div className="rating-and-price flex items-center justify-between py-2">
                 <div className="price text-xl font-bold">${discount_price} <sub className="text-gray-400 line-through">{current_price}</sub></div>
                 <div className="rating flex items-center">
@@ -27,7 +29,7 @@ const ListView = ({ products }) => {
                 </div>
               </div>
               <div className="btn">
-                <NavLink to={`/product/${product_id}`} className="text-white w-full flex justify-center items-center gap-2 bg-gradient-to-br from-teal-600 to-green-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                <NavLink to={`/product/${product_id}`} className="text-white w-full flex justify-center items-center gap-2 bg-teal-700 active:text-teal-700 active:bg-white focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-sm px-5 py-2.5">
                   <i className="fa-solid fa-eye"></i> View
                 </NavLink>
               </div>
@@ -35,6 +37,7 @@ const ListView = ({ products }) => {
           </div>
         );
       })}
+      </div>
     </div>
   );
 };
