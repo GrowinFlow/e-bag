@@ -1,74 +1,78 @@
-import React, { createContext, useContext, useReducer, useEffect } from "react";
-import reducer from "./../reducer/CartReducer";
+import { type } from '@testing-library/user-event/dist/type';
+import reducer from './../reducer/CartReducer'
+import { createContext, useContext, useReducer, useEffect } from "react";
 
 const CartContext = createContext();
 
 const getLocalCartData = () => {
-  let localCartData = localStorage.getItem("CartsData");
-  if (localCartData) {
-    return JSON.parse(localCartData);
-  } else {
-    return [];
-  }
-};
-
-const initialState = {
-  cart: getLocalCartData(),
-  total_item: 0,
-  total_price: 0,
-  shipping_fee: 1500,
-};
+    let localCartData = localStorage.getItem("CartsData");
+    if (localCartData) {
+        return JSON.parse(localCartData)
+    } else {
+        return [];
+    }
+}
+const intialState = {
+    // cart: [],
+    cart: getLocalCartData(),
+    total_item: "",
+    total_price: "",
+    shipping_fee: 5000,
+}
 
 const CartProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
 
-  const addToCart = (product_id, quantity, product) => {
-    dispatch({ type: "ADD_TO_CART", payload: { product_id, quantity, product } });
-  };
+    const [state, dispatch] = useReducer(reducer, intialState);
 
-  // Increment and decrement
-  const setDecrement = (id) => {
-    dispatch({ type: "SET_DECREMENT", payload: id });
-  };
+    const addToCart = (product_id, quantity, product) => {
+        dispatch({ type: "ADD_TO_CART", payload: { product_id, quantity, product } })
+    }
 
-  const setIncrement = (id) => {
-    dispatch({ type: "SET_INCREMENT", payload: id });
-  };
+    //    increment and decrement 
+    const setDecrement = (id) => {
+        dispatch({ type: "SET_DECREMENT", payload: id })
+    }
+    const setIncrement = (id) => {
+        dispatch({ type: "SET_INCREMENT", payload: id })
+    }
 
-  const removeItem = (id) => {
-    dispatch({ type: "REMOVE_ITEM", payload: id });
-  };
+    const removeItem = (id) => {
+        dispatch({ type: "REMOVE_ITEM", payload: id })
+    }
 
-  // Clear cart
-  const clearCart = () => {
-    dispatch({ type: "CLEAR_CART" });
-  };
+    // clear cart 
+    const clearCart = () => {
+        dispatch({ type: "CLEAR_CART", })
+    }
 
-  // Update total items and total price
-  useEffect(() => {
-    dispatch({ type: "CART_TOTAL_PRICE" });
-    dispatch({ type: "CART_TOTAL_ITEM" });
-    localStorage.setItem("CartsData", JSON.stringify(state.cart));
-  }, [state.cart]);
+    // to add in local storage 
+    // get and set 
+    useEffect(() => {
+        dispatch({type: "CART_TOTAL_ITEM"})
+        localStorage.setItem("CartsData", JSON.stringify(state.cart))
+    }, [state.cart])
 
-  return (
-    <CartContext.Provider
-      value={{
-        ...state,
-        addToCart,
-        removeItem,
-        clearCart,
-        setDecrement,
-        setIncrement,
-      }}
-    >
-      {children}
-    </CartContext.Provider>
-  );
-};
+
+
+    return (
+        <CartContext.Provider
+            value={{
+                ...state,
+                addToCart,
+                removeItem,
+                clearCart,
+                setDecrement,
+                setIncrement
+            }}>
+            {children}
+        </CartContext.Provider>
+    )
+}
+
 
 const useCartContext = () => {
-  return useContext(CartContext);
-};
+    return useContext(CartContext)
+}
 
-export { CartProvider, useCartContext };
+
+export { CartProvider, useCartContext }

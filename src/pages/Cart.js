@@ -6,30 +6,38 @@ import ThanksNote from '../components/ThanksNote';
 import ConfirmToast from '../components/ConfirmToast';
 
 const Cart = () => {
-  const { cart, clearCart, total_price, shipping_fee } = useCartContext();
-  const [showConfirmToast, setShowConfirmToast] = useState(false);
+    const { cart, clearCart, shipping_fee } = useCartContext();
+    const [showConfirmToast, setShowConfirmToast] = useState(false);
 
-  const handleClearCart = () => {
-    setShowConfirmToast(true);
-  };
+    const handleClearCart = () => {
+        setShowConfirmToast(true);
+    };
 
-  const confirmClearCart = () => {
-    clearCart();
-    setShowConfirmToast(false);
-  };
+    const confirmClearCart = () => {
+        clearCart();
+        setShowConfirmToast(false);
+    };
 
-  const cancelClearCart = () => {
-    setShowConfirmToast(false);
-  };
+    const cancelClearCart = () => {
+        setShowConfirmToast(false);
+    };
+
+    let subtotal = 0;
+    cart.forEach((item) => {
+        subtotal += item.price * item.quantity;
+    });
+
+    const total = subtotal + shipping_fee;
+
 
   if (cart.length === 0) {
     return (
       <div className="container mx-auto p-4">
-        <ThanksNote heading="No Cart Items" note="Thanks for reaching us." />
+        <ThanksNote heading="No Cart In Items" note="Thanks for reaching.." />
         <Buttons
           btnText={
             <span className="text-sm">
-              <i className="fa-solid fa-backward fa-fade"></i> &nbsp; CONTINUE SHOPPING
+              <i className="fa-solid fa-backward fa-fade"></i> &nbsp; CONTINUE SHOPING
             </span>
           }
           btnLink="/shop"
@@ -51,7 +59,7 @@ const Cart = () => {
         <div className="hr py-4 w-full border-t-2 border-gray-400"></div>
         <div className="flex flex-col gap-4">
           {cart.map((curElem) => {
-            return <CartItem key={curElem.id} {...curElem} />;
+            return <CartItem key={curElem.product_id} {...curElem} />;
           })}
         </div>
         <div className="hr py-4 w-full border-b-2 border-gray-400"></div>
@@ -59,7 +67,7 @@ const Cart = () => {
           <Buttons
             btnText={
               <span className="text-sm">
-                <i className="fa-solid fa-backward fa-fade"></i> &nbsp; CONTINUE SHOPPING
+                <i className="fa-solid fa-backward fa-fade"></i> &nbsp; CONTINUE SHOPING
               </span>
             }
             btnLink="/shop"
@@ -83,30 +91,25 @@ const Cart = () => {
         />
       )}
 
-      <div className="container mx-auto px-4">
-        <div className="bill-box flex justify-end items-start">
-          <div className="box flex-col justify-center items-center border-2 border-dashed border-gray-200 rounded-lg p-4">
-            <div className="sub-total flex items-center justify-between w-60 font-medium">
-              <div className="Heading font-semibold text-gray-400">SUBTOTAL</div>
-              <div className="value">$ <span className="text-teal-700">
-    {cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2)}
-  </span></div>
-            </div>
-            <div className="sub-total flex items-center justify-between w-60 font-medium">
-              <div className="Heading font-semibold text-gray-400">SHIPPING FEE</div>
-              <div className="value">$ <span className="text-teal-700">{shipping_fee}</span></div>
-            </div>
-            <div className="hr mt-2 pb-4 w-full border-t-2 border-gray-400"></div>
-            <div className="sub-total flex items-center justify-between w-60 font-medium">
-              <div className="Heading font-semibold text-gray-400">TOTAL</div>
-              <div className="value">$ <span className="text-teal-700">
-    {cart.reduce((total, item) => total + (item.price * item.quantity + shipping_fee), 0).toFixed(2)}
-  </span></div>
-            </div>
-          </div>
+<div className="container mx-auto px-4">
+        <div className="bill-box flex justify-end items-start ">
+        <div className="box flex-col justify-center items-center border-2 border-dashed border-gray-200 rounded-lg p-4">
+                        <div className="sub-total flex items-center justify-between w-60 font-medium">
+                            <div className="Heading font-semibold text-gray-400">SUBTOTAL</div>
+                            <div className="value">$ <span className='text-teal-700'>{subtotal.toFixed(2)}</span></div>
+                        </div>
+                        <div className="sub-total flex items-center justify-between w-60 font-medium">
+                            <div className="Heading font-semibold text-gray-400">SHIPPING FEE</div>
+                            <div className="value">$ <span className='text-teal-700'>{shipping_fee}</span></div>
+                        </div>
+                        <div className="sub-total flex items-center justify-between w-60 font-medium">
+                            <div className="Heading font-semibold text-gray-400">TOTAL</div>
+                            <div className="value">$ <span className='text-teal-700'>{total.toFixed(2)}</span></div>
+                        </div>
+                    </div>
         </div>
-      </div>
-      <br />
+    </div>
+    <br />
     </>
   );
 };

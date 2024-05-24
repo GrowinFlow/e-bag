@@ -26,7 +26,7 @@ const CartItem = ({ id, quantity, image, catlog, name, price, stock }) => {
 
                 <div className='hidden md:flex justify-center items-center'>
                     <span>
-                        $<span className='font-medium text-teal-700'>{price.toFixed(2)}</span>
+                        $<span className='font-medium text-teal-700'>{price}</span>
                     </span>
                 </div>
 
