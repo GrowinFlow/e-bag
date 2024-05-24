@@ -12,7 +12,7 @@ function Shop() {
     <>
 <Sort />
 
-<div className='container mx-auto p-4 flex flex-col md:flex-row '>
+<div className='container mx-auto p-4 flex flex-col md:flex-row transition-all ease-linear duration-300'>
   <FilterSection />
   <ProductList />
 </div>

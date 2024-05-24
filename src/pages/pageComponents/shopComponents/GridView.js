@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const GridView = ({ products = [] }) => {
     return (
         <>
-        <div className='container mx-auto p-4 flex '>
+        <div className='container mx-auto p-4 flex transition-all ease-linear duration-300'>
             <div className="flex gap-4 flex-wrap md:grid-cols-2 md:grid lg:grid-cols-3 xl:grid-cols-4 px-4">
                 {products.map((curElem) => {
                     const { product_id, title, product_feature_img, current_price, discount_percentage, discount_price, ratings } = curElem;

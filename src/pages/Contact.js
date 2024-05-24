@@ -6,12 +6,12 @@ import ContactForm from './pageComponents/contactComponent/ContactForm'
 
 function Contact() {
   return (
-    <>
+    <div className='transition-all ease-linear duration-300'>
       <ContactForm />
       <MapSection />
 
       <NewsLetter />
-    </>
+    </div>
   )
 }
 

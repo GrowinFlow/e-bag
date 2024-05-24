@@ -5,7 +5,7 @@ const Sort = () => {
     const { grid_view, setGridView, setListView, filter_products, setSortValue, sort_value } = useFilterContext();
 
     return (
-        <div className="container mx-auto p-4">
+        <div className="container mx-auto p-4 transition-all ease-linear duration-300">
             <div className="flex gap-4">
                 <div className=' w-[300px]  hidden md:flex  items-center'>
                     <div className="heading hidden md:flex text-2xl gap-4  items-center font-bold px-2">
@@ -34,7 +34,7 @@ const Sort = () => {
                                     <select 
                                         id="sort"
                                         name='sort'
-                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5"
+                                        className="transition-all ease-linear duration-500 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5"
                                         value={sort_value} 
                                         onChange={(e) => setSortValue(e.target.value)}
                                     >

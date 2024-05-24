@@ -13,17 +13,17 @@ const Cart = () => {
     <>
       <div className="container mx-auto p-4 text-sm md:text-md lg:text-lg">
 
-        <div className="grid grid-cols-4 md:grid-cols-5 py-4 text-gray-500 font-bold min-w-[300px]:bg-red-200">
+        <div className="grid grid-cols-3 md:grid-cols-5 py-4 text-gray-500 font-bold min-w-[300px]:bg-red-200">
 
           <div className='flex justify-start px-2 items-center'>
             Items
           </div>
 
-          <div className='flex justify-center items-center'>
+          <div className='hidden md:flex justify-center items-center'>
             Price
           </div>
 
-          <div className='flex justify-center items-center'>
+          <div className='flex pl-8 md:p-0 justify-center items-center'>
             Quantity
           </div>
 

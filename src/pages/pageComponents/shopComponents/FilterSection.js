@@ -24,13 +24,11 @@ const FilterSection = () => {
     }
   };
 
-  const handleSearchInputChange = (e) => {
-    updateFilterValue({ target: { name: 'text', value: e.target.value } });
-  };
+
 
   return (
     <>
-      <div className='w-full md:w-[300px] block'>
+      <div className='w-full md:w-[300px] block transition-all ease-linear duration-300'>
         <div className="text-sm md:text-md lg:text-lg  md:flex flex-col overflow-hidden">
           <ul className="flex py-4 text-xs md:text-lg flex-wrap md:flex-nowrap md:flex-col w-full gap-2 rounded-md">
      

@@ -8,7 +8,7 @@ const ListView = ({ products }) => {
         const { product_id, title, product_feature_img, current_price, description, discount_price, ratings } = curElem;
 
         return (
-          <div key={index} className="grid grid-cols-4 rounded-lg shadow-md overflow-hidden p-2 gap-2 group">
+          <div key={index} className="grid grid-cols-4 rounded-lg shadow-md overflow-hidden p-2 gap-2 group transition-all ease-linear duration-300">
             <div className="col-span-1 h-44 bg-slate-100 rounded-lg overflow-hidden">
               <img src={product_feature_img} alt={title} className="object-cover w-full h-full transition-all ease-in duration-700 group-hover:scale-125" />
             </div>
