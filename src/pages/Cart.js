@@ -1,7 +1,7 @@
 import React from 'react'
 import { useCartContext } from '../context/CartContext'
 import CartItem from './pageComponents/cartComponent/CartItem'
-CartItem
+
 
 const Cart = () => {
 
