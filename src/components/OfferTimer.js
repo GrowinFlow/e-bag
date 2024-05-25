@@ -38,7 +38,7 @@ const OfferTimer = ({ endTime }) => {
                 <div className="div flex justify-between items-center gap-12">
                     <div className="heading font-medium text-teal-700">
                     <div className="arrow absolute w-16">
-            <img src={arrowImg} alt="arrow" className='relative top-2 -left-10 rotate-[135deg]'/>
+            <img src={arrowImg} alt="arrow" className='relative top-2 -left-10 rotate-[135deg]' width="64"/>
         </div>
                         On Sale Now
                     </div>
