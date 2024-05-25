@@ -9,7 +9,7 @@ function Footer() {
 
                <br /><br />
                 <section className="footer flex justify-center bg-gray-100">
-                    <p className="w-1/2 flex gap-2 justify-center text-center font-semibold text-xs text-gray-500 py-2 mt-4 bg-gray-100"><span className='bg-gray-100 text-gray-500'>All Right Reserved &nbsp; | <Logo /> | &nbsp;©  2024</span>  </p>
+                    <p className="w-1/2 flex gap-2 justify-center text-center font-semibold text-xs text-gray-500 py-2 mt-4 bg-gray-100 ">All Right Reserved &nbsp; | <Logo /> | &nbsp;©  2024  </p>
 
                 </section>
             </footer>
