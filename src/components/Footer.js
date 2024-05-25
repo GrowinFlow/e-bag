@@ -1,9 +1,5 @@
 import React from 'react'
-import NavItem from './../components/preComponent/NavItem'
-import Buttons from './Buttons'
 import Logo from './../components/preComponent/Logo'
-import NewsLetter from '../pages/pageComponents/homeCompnents/NewsLetter'
-
 
 function Footer() {
     return (

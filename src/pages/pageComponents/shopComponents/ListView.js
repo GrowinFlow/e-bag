@@ -12,7 +12,7 @@ const ListView = ({ products }) => {
         return (
           <div key={index} className="grid grid-cols-4 rounded-lg shadow-md overflow-hidden p-2 gap-2 group transition-all ease-linear duration-300">
             <div className="col-span-1 h-44 bg-slate-100 rounded-lg overflow-hidden">
-              <img src={product_feature_img} alt={title} className="object-cover w-full h-full transition-all ease-in duration-700 group-hover:scale-125" />
+              <img src={product_feature_img} alt={title} className="object-cover w-full h-full transition-all ease-in duration-700 group-hover:scale-125"height="44" />
             </div>
             <div className="col-span-3">
               <div className="title text-lg py-1 font-medium md:text-2xl">{title}</div>
