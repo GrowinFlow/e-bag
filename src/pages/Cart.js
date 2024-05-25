@@ -102,6 +102,10 @@ const Cart = () => {
                             <div className="Heading font-semibold text-gray-400">SHIPPING FEE</div>
                             <div className="value">$ <span className='text-teal-700'>{shipping_fee}</span></div>
                         </div>
+                        <div className='py-2'>
+
+                        <hr />
+                        </div>
                         <div className="sub-total flex items-center justify-between w-60 font-medium">
                             <div className="Heading font-semibold text-gray-400">TOTAL</div>
                             <div className="value">$ <span className='text-teal-700'>{total.toFixed(2)}</span></div>
