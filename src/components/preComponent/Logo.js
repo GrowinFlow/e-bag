@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 function Logo(props) {
   return (
     <>
-    <NavLink to="/" className={`flex gap-4 ${`text-`+props.textSize}  font-bold`}>
+    <NavLink to="/" className={`flex gap-4 ${`text-`+props.textSize} font-bold`}>
         <span className='flex items-center '>
          <i className="fa-solid fa-e"></i>
          <b className='text-black'>&nbsp;-&nbsp;</b>
