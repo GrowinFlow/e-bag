@@ -1,5 +1,5 @@
 import React from 'react'
-import mapImg from './../../.././assets/images/map.jpg'
+import mapImg from './../../.././assets/images/map.webp'
 
 
 
