@@ -17,7 +17,7 @@ function NewsLetter() {
 
     <div className="join col-span-4">
                                 <div className="heading">
-                                    <h3 className="text-xl font-bold pb-4">Join a Newsletter</h3>
+                                    <p className="text-xl font-bold pb-4">Join a Newsletter</p>
                                 </div>
                                 <div className="form">
 
