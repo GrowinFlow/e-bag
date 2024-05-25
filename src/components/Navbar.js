@@ -4,6 +4,7 @@ import NavItem from './preComponent/NavItem'
 import DpBox from './preComponent/DpBox';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../context/CartContext';
+import dpImg from './../assets/images/dp.webp'
 
 
 function Navbar() {
@@ -82,7 +83,7 @@ function Navbar() {
 
                     <li>
                         <div className="dp-section group">
-                            <DpBox dpLink="https://img.freepik.com/free-photo/handsome-handsome-guy-posing-against-white-wall_176420-32957.jpg?w=996&t=st=1715931909~exp=1715932509~hmac=b6ec2cedf2350b0fb475bc6ee5bbe53a0f7e9a7b0ed1a2c93d24ea837a3a94c3" />
+                            <DpBox dpLink={dpImg} />
 
 
 

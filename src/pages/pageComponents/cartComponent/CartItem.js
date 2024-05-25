@@ -14,7 +14,7 @@ const CartItem = ({ id, quantity, image, catlog, name, price, stock }) => {
                 <div className='flex justify-start items-center gap-2'>
 
                     <div className="img h-12 w-12 bg-slate-100 rounded-md shadow-md overflow-hidden">
-                        <img src={image} alt="img" className='h-full object-cover overflow-hidden' height="8" width="10"/>
+                        <img src={image} alt="img" className='h-full object-cover overflow-hidden' height="18" width="50"/>
                     </div>
 
                     <div className="details text-sm md:text-md">

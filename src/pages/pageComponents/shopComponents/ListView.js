@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const ListView = ({ products }) => {
   return (
-    <div className="flex flex-col gap-4 p-4 container mx-auto ">
+    <div className="flex flex-col gap-4 py-2 md:p-4 container mx-auto ">
       <div className="border-2 border-dashed border-gray-200 p-2 rounded-lg">
 
       {products.map((curElem, index) => {
