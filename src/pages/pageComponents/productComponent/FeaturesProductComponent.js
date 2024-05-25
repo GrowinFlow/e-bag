@@ -11,12 +11,12 @@ const FeaturesProductComponent = (curElem) => {
 
       <div className="relative flex w-full md:w-full md:max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md group">
         <span className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl justify-center">
-          <img className="object-cover transition-all ease-linear duration-300 group-hover:scale-110" src={product_feature_img} alt={title} height={120} />
+          <img className="object-cover transition-all ease-linear duration-300 group-hover:scale-110" src={product_feature_img} alt={title} height={120} width={200}/>
           <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{discount_percentage}% OFF</span>
         </span>
         <div className="mt-4 px-5 pb-5">
           <span>
-            <h5 className="text-xl tracking-tight text-slate-900">{title}</h5>
+            <p className="text-xl tracking-tight text-slate-900">{title}</p>
           </span>
           <div className="mt-2 mb-5 flex items-center justify-between">
             <p>

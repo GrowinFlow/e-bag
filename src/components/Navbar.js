@@ -68,7 +68,7 @@ function Navbar() {
                     <li>
                         <div className='md:hidden order-2 md:order-1'>
 
-                            <button name="toggleBtn" onClick={toggle} className='outline-none'>
+                            <button aria-label='toggleBtn' onClick={toggle} className='outline-none'>
 
                                 <span className="block w-10 py-1 px-3 bg-gray-100 hover:bg-white rounded bg-transparent text-gray-500 hover:shadow-sm border-2 border-teal-700 shadow-md cursor-pointer">
                                     {show ?

@@ -23,7 +23,7 @@ function HeroSection() {
 
 
         <div className="lg:mt-0 lg:col-span-5 lg:flex">
-            <img src={heroImg} alt="heroImg" height="800"/>
+            <img src={heroImg} alt="heroImg" height="800" fetchpriority="high" width="740"/>
 
         </div>                
 

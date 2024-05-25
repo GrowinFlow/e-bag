@@ -9,7 +9,7 @@ function Buttons(props) {
     }
   return (
     <>
-    <button onClick={()=>{navigateTo(props.btnLink)}} name="button" type="button" className="text-white w-auto bg-teal-700 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">{props.btnText}</button>
+    <button onClick={()=>{navigateTo(props.btnLink)}} aria-label='button' type="button" className="text-white w-auto bg-teal-700 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">{props.btnText}</button>
 
     </>
   )

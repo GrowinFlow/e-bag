@@ -11,7 +11,7 @@ const GridView = ({ products = [] }) => {
                     return (
                         <div key={product_id} className="relative flex w-full md:w-full md:max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md group">
                             <span className="relative  flex h-60 overflow-hidden rounded-xl justify-center">
-                                <img className="transition-all ease-linear duration-300 group-hover:scale-110 object-cover" src={product_feature_img} alt={title} height="24"/>
+                                <img className="transition-all ease-linear duration-300 group-hover:scale-110 object-cover" src={product_feature_img} alt={title} height="24" width={250}/>
                                 <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{discount_percentage}% OFF</span>
                             </span>
                             <div className="mt-4 px-5 pb-5">
