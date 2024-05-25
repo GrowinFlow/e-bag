@@ -7,7 +7,7 @@ function MapSection() {
   return  (
     <div>
         <div 
-            className='h-28 w-screen bg-cover bg-fixed' 
+            className='h-[120px] w-screen bg-cover bg-fixed' 
             style={{ backgroundImage: `url(${mapImg})` }}>
         </div>
 
